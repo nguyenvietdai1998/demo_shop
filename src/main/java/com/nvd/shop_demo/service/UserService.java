@@ -1,13 +1,10 @@
 package com.nvd.shop_demo.service;
 
 import com.nvd.shop_demo.entity.User;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
-public interface UserService {
-    User save(User user);
+@Service
+public interface UserService extends BaseService<User, Long> {
 
-    Page<User> findAll(Pageable pageable);
 
-    void delete(long id);
 }
