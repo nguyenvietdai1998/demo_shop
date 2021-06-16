@@ -12,7 +12,7 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class AbstractServiceImpl<T, ID> implements BaseService<T, ID> {
+public abstract class AbstractServiceImpl<T, ID> implements BaseService<T, ID> {
 
     protected final BaseRepository baseRepository;
 

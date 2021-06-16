@@ -2,6 +2,7 @@ package com.nvd.shop_demo.controller;
 
 import com.nvd.shop_demo.mapper.UserMapper;
 import com.nvd.shop_demo.model.request.user.UserSaveRequest;
+import com.nvd.shop_demo.model.response.user.UserResponse;
 import com.nvd.shop_demo.service.UserService;
 import lombok.Data;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,21 @@ public class UserController {
     @PostMapping("/user")
     public ResponseEntity<Void> save(@RequestBody UserSaveRequest userSaveRequest) {
         userService.save(userSaveRequest, userMapper::mapToEntity);
+
         return ResponseEntity.ok().build();
     }
+
+    @DeleteMapping("/user/{id}")
+    public ResponseEntity<Void> delete(@PathVariable long id) {
+        userService.delete(id);
+
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/user/{id}")
+    public ResponseEntity<UserResponse> findById(@PathVariable long id) {
+
+        return ResponseEntity.ok(userService.findById(id, userMapper::mapToRespones));
+    }
+
 }
