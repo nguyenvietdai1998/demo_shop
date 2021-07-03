@@ -1,5 +1,6 @@
 package com.nvd.shop_demo.service.impl;
 
+import com.nvd.shop_demo.exception.ObjectNotFoundException;
 import com.nvd.shop_demo.model.response.PageResponse;
 import com.nvd.shop_demo.repository.BaseRepository;
 import com.nvd.shop_demo.service.BaseService;
@@ -35,7 +36,7 @@ public abstract class AbstractServiceImpl<T, ID> implements BaseService<T, ID> {
     public <RP> RP findById(ID id, Function<T, RP> transform) {
         Optional<T> t = baseRepository.findById(id);
 
-        t.orElseThrow(() -> new RuntimeException());
+        t.orElseThrow(() -> new ObjectNotFoundException("Not found with: " + id));
 
         return transform.apply(t.get());
     }

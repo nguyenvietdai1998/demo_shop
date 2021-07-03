@@ -66,6 +66,29 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+
+        <!-- https://mvnrepository.com/artifact/org.bitbucket.b_c/jose4j -->
+        <dependency>
+            <groupId>org.bitbucket.b_c</groupId>
+            <artifactId>jose4j</artifactId>
+            <version>0.6.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.58</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
     </dependencies>
 
     <build>

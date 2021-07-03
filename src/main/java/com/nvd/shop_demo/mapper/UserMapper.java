@@ -6,6 +6,7 @@ import com.nvd.shop_demo.model.request.user.UserSaveRequest;
 import com.nvd.shop_demo.model.response.user.UserResponse;
 import com.nvd.shop_demo.repository.RoleRepository;
 import com.nvd.shop_demo.utils.BeanUtils;
+import com.nvd.shop_demo.validate.UserValidate;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +19,7 @@ public class UserMapper {
     private final RoleRepository roleRepository;
 
     public User mapToEntity(UserSaveRequest userSaveRequest) {
+        UserValidate.validate(userSaveRequest);
         User user = new User();
         BeanUtils.refine(userSaveRequest, user, BeanUtils::copyNonNull);
         List<Role> roles = roleRepository.findAllByIdIn(userSaveRequest.getIds());
